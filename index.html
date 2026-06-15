@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>KJTecht.Company</title>
+
+                <style>
+
+                    /* confi general del page */
+                    * {
+                        box-sizing: border-box;
+                        margin: 0;
+                        padding: 0;
+                        }
+
+                    html {
+                            scroll-behavior: smooth;
+                            }
+                    body {
+
+                        background-color: #0f172a;
+                        color: #94a3b8;
+                        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+                        line-height: 1.7;
+                    }
+
+                    /* maquetacion en 2 columnas */
+
+                    .contenerdor-principal{
+
+                        display: flex;
+                        max-width: 1200px;
+                        margin: 0 auto;
+                        padding: 0 50px;
+                        min-height: 100vh;
+                    }
+
+                    /* columna izquierda */
+
+                    .panel-izquierdo {
+
+                        width: 45%;
+                        position: sticky;
+                        top: 0;
+                        height: 100vh;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        padding: 80px 0;
+                    }
+
+                    /* titulos de  la empresa */
+
+                    .panel-izquierdo h1{
+
+                        color: #f8fafc;
+                        font-size: 42px;
+                        font-weight: 700;
+                        letter-spacing: -1px;
+                    }
+
+                    .panel-izquierdo h2 {
+                        color: #e2e8f0;
+                        font-size: 19px;
+                        font-weight: 500;
+                        margin-top: 12px;
+                    }
+
+                    .panel-izquierdo h3 {
+                        color: #94a3b8;
+                        font-size: 15px;
+                        font-weight: 400;
+                        margin-top: 15px;
+                        line-height: 1.6;
+                    }
+
+                    /* el menu de navegacion */
+
+                    .navbar {
+                        margin-top: 50px;
+                    }
+
+                    .nav-links {
+                        list-style: none;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                    }
+
+                    .nav-links a {
+                        display: flex;
+                        align-items: center;
+                        text-decoration: none;
+                        cursor: pointer;
+                    }
+
+                    /* la lines horizz */
+
+                    .linea-indicadora {
+                        width: 30px;
+                        height: 1px;
+                        background-color: #475569;
+                        margin-right: 15px;
+                        transition: width 0.3s ease, background-color 0.3s ease;
+                    }
+
+
+
+                    /* El texto del menú */
+                            .texto-enlace {
+                                color: #64748b;
+                                font-size: 12px;
+                                font-weight: 700;
+                                text-transform: uppercase;
+                                letter-spacing: 1.5px;
+                                transition: color 0.3s ease;
+                            }
+
+                            /* Efecto Hover y Activo (Gestionado por JS) */
+                            .nav-links a:hover .linea-indicadora,
+                            .nav-links a.activo .linea-indicadora {
+                                width: 60px;
+                                background-color: #f8fafc;
+                            }
+
+                            .nav-links a:hover .texto-enlace,
+                            .nav-links a.activo .texto-enlace {
+                                color: #f8fafc;
+                            }
+
+                            /* ICONOS DE CONTACTO (Fondo izquierdo) */
+                            .iconos-contacto {
+                                display: flex;
+                                gap: 20px;
+                                justify-content: flex-start;
+                                margin-top: 20px;
+                            }
+
+                            /* Filtro para que tus imágenes negras de Icons8 se vuelvan blancas/tecnológicas */
+                            .iconos-contacto img {
+                                filter: invert(70%) sepia(10%) saturate(500%) hue-rotate(180deg);
+                                transition: transform 0.3s, filter 0.3s;
+                            }
+
+                            .iconos-contacto img:hover {
+                                transform: scale(1.2);
+                                filter: invert(90%) sepia(100%) saturate(1000%) hue-rotate(170deg); /* Brillo azul al pasar el mouse */
+                            }
+
+                            /* 4. COLUMNA DERECHA (SCROLLABLE) */
+                            .columna-derecha {
+                                width: 55%;
+                                padding: 80px 0 80px 40px;
+                            }
+
+                            /* Bloques de tus secciones */
+                            .seccion-contenido {
+                                padding-bottom: 100px; /* Espacio para que el scroll active el menú correctamente */
+                            }
+
+                            .seccion-contenido h3 {
+                                color: #f8fafc;
+                                font-size: 20px;
+                                font-weight: 600;
+                                margin-bottom: 20px;
+                            }
+
+                            .seccion-contenido p {
+                                font-size: 16px;
+                                margin-bottom: 20px;
+                                color: #94a3b8;
+                            }
+
+                            /* ==========================================================================
+                            5. ADAPTACIÓN A MÓVILES (RESPONSIVE)
+                            ========================================================================== */
+                            @media (max-width: 992px) {
+                                .contenedor-principal {
+                                    flex-direction: column;
+                                    padding: 0 24px;
+                                }
+
+                                .panel-izquierdo {
+                                    width: 100%;
+                                    position: relative;
+                                    height: auto;
+                                    padding: 60px 0 20px 0;
+                                }
+
+                                .panel-izquierdo h1 { font-size: 36px; }
+                                
+                                .navbar { display: none; } /* Oculta las líneas en móvil para ahorrar espacio */
+
+                                .columna-derecha {
+                                    width: 100%;
+                                    padding: 40px 0 60px 0;
+                                }
+
+                                .seccion-contenido {
+                                    padding-bottom: 50px;
+                                }
+                            }
+                        </style>
+
+        </head>
+
+<body>
+
+    <!-- cabeza  -->
+
+        <header><h1>KJTecht</h1></header>
+        <h2>Creamos páginas web que hacen crecer tu negocio.</h2>
+        <h3>Diseñamos sitios modernos, rápidos y seguros para que tu tienda venda más y llegue a más clientes.</h3>
+
+
+     <!-- navegacion de la pagina -->
+        <nav class="navbar">
+             <ul class="nav-links">
+                <li><a href="#servicios">Nuestros Servicios</a></li>
+                <li><a href="#metodologia">Cómo Trabajamos</a></li>
+                <li><a href="#filosofia">Nuestra Filosofía</a></li>
+                <li><a href="#contacto">Escríbenos</a></li>
+            </ul>
+        </nav>
+
+
+      <!-- cuerpo texto -->
+      <section id="servicios">
+        <h3>Soluciones digitales creadas para impulsar tu negocio</h3>
+        <p>En KJTecht desarrollamos páginas web profesionales y landing pages diseñadas para que tu negocio tenga una presencia digital sólida, moderna y confiable. Sabemos que hoy tus clientes buscan información, comparan opciones y toman decisiones a través de internet, por eso creamos experiencias digitales que representan el valor de tu marca.</p>
+
+                <p>Nuestro trabajo combina diseño, funcionalidad y tecnología para construir sitios web rápidos, atractivos y adaptados a las necesidades de cada empresa. Desarrollamos plataformas utilizando tecnologías como HTML, CSS, JavaScript y PHP, creando soluciones personalizadas que permiten mostrar tus productos, servicios y la identidad de tu negocio de manera profesional.</p>
+
+                <p>No solo creamos páginas web, creamos herramientas que ayudan a que más personas conozcan tu empresa, generen confianza en tu marca y tengan una razón para elegirte frente a la competencia.</p>
+
+                <p>Desde tiendas que buscan vender más hasta negocios que necesitan comenzar su transformación digital, en KJTecht convertimos ideas en soluciones web preparadas para crecer.</p>
+      </section>
+
+      <section id="metodologia">
+        <h3>Un proceso estratégico para convertir tu idea en una experiencia digital</h3>
+        <p>En KJTecht trabajamos siguiendo un proceso organizado que nos permite crear páginas web alineadas con los objetivos reales de tu negocio. Antes de desarrollar, analizamos tu marca, tu público y lo que necesitas transmitir para construir una solución que tenga sentido para tus clientes.</p>
+
+            <p>Comenzamos entendiendo tu proyecto y definiendo la estructura ideal para tu página web. Luego diseñamos una interfaz moderna y clara, enfocada en que tus visitantes encuentren fácilmente la información que buscan y tengan una experiencia agradable.</p>
+
+            <p>Durante el desarrollo aplicamos buenas prácticas utilizando tecnologías como HTML, CSS, JavaScript y PHP, logrando páginas seguras, funcionales y preparadas para adaptarse a diferentes dispositivos.</p>
+
+            <p>Nuestro objetivo es entregarte más que un sitio web: una herramienta digital que ayude a tu negocio a posicionarse, atraer nuevos clientes y abrir nuevas oportunidades de crecimiento.</p>
+      </section>
+
+      <section id="filosofia">
+        <h3>Tu negocio y Tu,  merecen crecer en el mundo digital</h3>
+        <p>Creemos que cualquier negocio, sin importar su tamaño, puede alcanzar nuevos clientes cuando cuenta con una presencia digital profesional. Una página web no es solo una imagen en internet; es una puerta abierta para que las personas conozcan tu empresa, confíen en tus servicios y decidan contactarte. </p>
+        
+            <p>En KJTecht entendemos que cada negocio tiene una historia, una propuesta y objetivos diferentes. Por eso desarrollamos soluciones web personalizadas que reflejan la esencia de cada marca y ayudan a comunicar su verdadero valor.</p>
+
+            <p>Vivimos en un mundo donde la primera impresión muchas veces ocurre en internet. Una página lenta, antigua o inexistente puede hacer que un cliente elija otra opción. Nosotros ayudamos a que tu negocio tenga una imagen digital moderna, profesional y preparada para competir.</p>
+
+            <p>Nuestra filosofía es simple: la tecnología debe estar al servicio del crecimiento de tu negocio.</p>
+      </section>
+      
+      
+
+
+
+
+       <!-- contacto  de mis plataformas -->
+        <section id="contacto">
+            <h3>Contáctame</h3>
+    <p>Haz clic en un ícono para mis plataformas Digitales</p>
+
+            <div class="iconos-contacto">
+
+                <!-- WhatsApp -->
+                        <a href="https://wa.me/51946431407" target="_blank">
+                            <img src="https://img.icons8.com/?size=100&id=wdriCfr9XeUL&format=png&color=000000" 
+                                alt="WhatsApp" width="50">
+                        </a>
+
+                <!-- Facebook -->
+                        <a href="https://www.facebook.com/share/1Md327cvvn/" target="_blank">
+                            <img src="https://img.icons8.com/?size=100&id=FOOSCXOgTsTF&format=png&color=000000" 
+                                alt="Facebook" width="50">
+                        </a>
+
+                <!-- Instagram -->
+                        <a href="https://instagram.com/kjtecht" target="_blank">
+                            <img src="https://img.icons8.com/?size=100&id=xQDoK3WxHJ8O&format=png&color=000000" 
+                                alt="Instagram" width="50">
+                        </a>
+
+                <!-- Email -->
+                        <a href="mailto:kjtecht@gmail.com">
+                            <img src="https://img.icons8.com/?size=100&id=7X2DNQH7dVDS&format=png&color=000000" 
+                                alt="Email" width="50">
+                        </a>
+
+                <!-- GitHub -->
+                        <a href="https://github.com/TDH23" target="_blank">
+                            <img src="https://img.icons8.com/?size=100&id=12598&format=png&color=000000" 
+                                alt="GitHub" width="50">
+                        </a>
+
+
+
+            </div>
+
+        </section>
+
+
+
+
+
+</body>
+
+</html>
